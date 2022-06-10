@@ -19,7 +19,6 @@ lowerCase = map toLower
 isCaseSensitive :: IO Bool
 isCaseSensitive = do
   envVariable <- lookupEnv "CASE_SENSITIVE"
-  let isEnvDeclared = isJust envVariable
   case envVariable of
     Nothing -> return False
     Just caseSensitive -> return $ lowerCase caseSensitive == "true"
